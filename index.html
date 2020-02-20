@@ -36,6 +36,51 @@
                 <h2>Search below for a place you are curious to visit</h2>
             </div>
         </div>
+        
+        <div>
+            <select id="countries">
+                <option value="volvo">All</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+
+            <input type="text" id="search" name="search" placeholder="Search">
+            <button type="button">Go!</button>
+        </div>
+        <div class="map p-2">
+            <img src="https://media.comicbook.com/2019/09/berserk-finale-1187083-1280x0.jpeg">
+        </div>
+
+        <div class="container">
+            <h2 class="text-center">Country</h2>
+            <div class="row">
+                <div class="card col-sm-3 m-3" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card col-sm-3 m-3" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card col-sm-3 m-3" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="bg-grey py-4">
             <div class="container">
@@ -63,7 +108,31 @@
             </div>
         </div>
 
-        <div class="">
+        <div class="selectDates container">
+            <h3 class="text-center">Thinking of visiting? Try some dates and check the prices</h3>
+            <label for="from">From:</label>
+
+            <select id="countries">
+                <option value="volvo">All</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+            <br>
+            <label for="to">To:</label>
+
+            <select id="countries">
+                <option value="volvo">All</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+
+            <label for="departing">Departing:</label>
+            <input data-provide="datepicker">
+            <br>
+            <label for="returning">Returning:</label>
+            <input data-provide="datepicker">
         </div>
 
     </section>
