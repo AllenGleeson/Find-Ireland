@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css?family=Stoke&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <title>Home</title>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
 </head>
 
 <body>
@@ -48,9 +55,8 @@
             <input type="text" id="search" name="search" placeholder="Search">
             <button type="button">Go!</button>
         </div>
-        <div class="map p-2">
-            <img src="https://media.comicbook.com/2019/09/berserk-finale-1187083-1280x0.jpeg">
-        </div>
+        
+        <div id="map"></div>
 
         <div class="container">
             <h2 class="text-center">Country</h2>
@@ -142,5 +148,25 @@
             <a href="mailto:name@email.com" class="contactLinks"><i class="fa-li fa fa-envelope-square"></i><span>Your Email</span></a>
         </div>
     </footer>
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4goDoxsaCW4gMIkitRO100lWVXO6WPUs"
+  type="text/javascript"></script>
+  <script>
+    {
+        $(function () {
+            var uluru = {lat: -25.344, lng: 131.036};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+        });
+
+    }
+    </script>
 </body>
 </html>
