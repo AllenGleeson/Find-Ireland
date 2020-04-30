@@ -3,14 +3,14 @@
 function initMap() {
 
 
-    var towns = [
+    /* var towns = [
         {
             name = "",
             logtitude = 0,
             description = "",
             iconImage = "",
             attractions = {
-                name = "",
+                aname = "",
                 long = 0,
                 lat = 0,
                 description = ""
@@ -22,7 +22,7 @@ function initMap() {
             long = 0,
 
         }
-    ]
+    ] */
 
 
     //let searchedTown = towns.find(t => t.name == searchTerm);
@@ -31,11 +31,11 @@ function initMap() {
 
     //allAttractions.find
 
-    for( let town of towns){
+    /* for( let town of towns){
         for( let attraction of town.attractions){
         
         }
-    }
+    } */
 
     var locations = [
       ['Limerick', 52.668018, -8.630498, 4],
@@ -91,11 +91,16 @@ function initMap() {
     var infowindow = new google.maps.InfoWindow();
 
     var marker, i;
+    var icon = {
+        url: 'https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png', // url
+        scaledSize: new google.maps.Size(50, 50), // size
+    };
 
     for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
+        map: map,
+        icon: icon
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
