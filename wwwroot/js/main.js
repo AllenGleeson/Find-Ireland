@@ -58,12 +58,171 @@ function initMap() {
                 },
             ]
         },
-        {
-            name = "",
-            lat = 0,
-            long = 0,
 
-        }
+        {
+            name = "Dublin",
+            lat = 53.350140,
+            long = -6.266155,
+            description = "Dublin is a warm and welcoming city, known for the friendliness of its people and famous for its craic (“crack”)—that mixture of repartee, humour, intelligence, and acerbic and deflating insight that has attracted writers, intellectuals, and visitors for centuries. It has faded grandeur and a comfortably worn sense.",
+            iconImage = {
+                url: "https://pbs.twimg.com/profile_images/683021906732302336/mf_6n9I5_400x400.jpg", // url
+                scaledSize: new google.maps.Size(50, 50) // size
+            },
+            attractions = [
+                {
+                    name = "Kilmainham Gaol",
+                    lat = 53.338498646,
+                    long = -6.30583211,
+                    type = "map",
+                    description = "Kilmainham Gaol is a former prison in Kilmainham, Dublin, Ireland. It is now a museum run by the Office of Public Works, an agency of the Government of Ireland. Many Irish revolutionaries, including the leaders of the 1916 Easter Rising, were imprisoned and executed in the prison by the orders of the UK Government."
+                },
+                {
+                    name = "Malahide Castle",
+                    lat = 53.440164906, 
+                    long = -6.158999364,
+                    type = "city",
+                    description = "Malahide Castle, parts of which date to the 12th century, lies close to the village of Malahide, nine miles north of central Dublin in Ireland. It has over 260 acres of remaining parkland estate, forming the Malahide Demesne Regional Park."
+                },
+                {
+                    name = "Guinness Storehouse",
+                    lat = 53.33833198,
+                    long = -6.285498858,
+                    type = "map",
+                    description = "Guinness Storehouse is a tourist attraction at St. James's Gate Brewery in Dublin, Ireland. Since opening in 2000, it has received over twenty million visitors. The Storehouse covers seven floors surrounding a glass atrium shaped in the form of a pint of Guinness. The ground floor introduces the beer's four ingredients, and the brewery's founder, Arthur Guinness. Other floors feature the history of Guinness advertising and include an interactive exhibit on responsible drinking. The seventh floor houses the Gravity Bar with views of Dublin and where visitors may drink a pint of Guinness included in the price of admission."
+                },
+                {
+                    name = "Christ Church Cathedral",
+                    lat = 53.33916531,
+                    long = -6.269498922,
+                    type = "castle",
+                    description = "Christ Church Cathedral, more formally The Cathedral of the Holy Trinity, is the cathedral of the United Dioceses of Dublin and Glendalough and the cathedral of the ecclesiastical province of the United Provinces of Dublin and Cashel in the Church of Ireland. It is situated in Dublin, Ireland, and is the elder of the capital city's two medieval cathedrals, the other being St Patrick's Cathedral."
+                },
+                {
+                    name = "Newgrange",
+                    lat = 53.6899522402,
+                    long = -6.47168311326,
+                    type = "castle",
+                    description = "Newgrange is a prehistoric monument in County Meath, Ireland, located 8 kilometres west of Drogheda on the north side of the River Boyne. It is an exceptionally grand passage tomb built during the Neolithic period, around 3200 BC, making it older than Stonehenge and the Egyptian pyramids. The site consists of a large circular mound with an inner stone passageway and chambers. Human bones and possible grave goods or votive offerings were found in these chambers. The mound has a retaining wall at the front, made mostly of white quartz cobblestones, and it is ringed by engraved kerbstones. Many of the larger stones of Newgrange are covered in megalithic art. The mound is also ringed by a stone circle. Some of the material that makes up the monument came from as far away as the Mournes and Wicklow Mountains. There is no agreement about what the site was used for, but it is believed that it had religious significance. Its entrance is aligned with the rising sun on the winter solstice, when sunlight shines through a 'roofbox' and floods the inner chamber. Several other passage tombs in Ireland are aligned with solstices and equinoxes, and Cairn G at Carrowkeel has a similar 'roofbox'."
+                },
+                {
+                    name = "Kilkenny Castle",
+                    lat = 52.650164066,
+                    long = -7.242832362,
+                    type = "map",
+                    description = "Kilkenny Castle is a 12th century castle found in the middle of Kilkenny City. Strongbow originally built a wooden castle on that site overlooking the River Nore in 1172. Around 30 years later, his son-in-law, the Earl of Pembroke built the first stone castle. Three of this castle's original four towers survive today."
+                },
+                {
+                    name = "Powerscourt Estate",
+                    lat = 53.18416593,
+                    long = -6.185499258,
+                    type = "map",
+                    description = "Set in the wild Wicklow countrywide, overlooking the Sugarloaf Mountain, Powerscourt is situated just 20km south of Dublin City Centre. The Gardens stretch over 47 acres and offer visitors a sublime blend of formal gardens, sweeping terraces, statues and ornamental lakes, secret hollows and rambling walks."
+                }
+            ]
+        },
+
+        {
+            
+            name = "Cork",
+            lat = 51.903614,
+            long = -8.468399,
+            description = "County Cork covers much of Ireland’s southwest. Its capital, Cork, is known for St. Fin Barre’s Cathedral, a neo-Gothic structure with tall spires and stained-glass windows. Across the River Lee is the castle-like Cork City Gaol, built in the 19th century. Northwest of Cork is the 15th-century Blarney Castle, home to the Blarney Stone, which is said to give the “gift of the gab”, or eloquence, to those who kiss it.",
+            iconImage = {
+                url: "https://pbs.twimg.com/profile_images/683021906732302336/mf_6n9I5_400x400.jpg", // url
+                scaledSize: new google.maps.Size(50, 50) // size
+            },
+            attractions = [
+                {
+                    name = "Killarney National Park and Muckross House & Gardens",
+                    lat = 52.0058447,
+                    long = -9.5561803,
+                    type = "map",
+                    description = "Killarney National Park is in southwest Ireland close to the island's most westerly point. The Lakes of Killarney and the Mangerton, Torc, Shehy and Purple Mountains are in the park. Altitudes in the park range from 22 metres (72 ft) to 842 metres (2,762 ft). Also close by is the Muckrose House & Gardens. It was completed in 1843. It is situated close to the eastern shore of Muckross Lake, taking full advantage of the magnificent views which can be enjoyed from this location. Most of the house has been preserved as a late 19th century mansion, with furniture and artefacts from that period."
+                },
+                {
+                    name = "Blarney Castle",
+                    lat = 51.929092,
+                    long = -8.570885,
+                    type = "city",
+                    description = "Blarney Castle is a medieval stronghold in Blarney, near Cork, Ireland. Though earlier fortifications were built on the same spot, the current keep was built by the MacCarthy of Muskerry dynasty, a cadet branch of the Kings of Desmond, and dates from 1446. The Blarney Stone is among the machicolations of the castle."
+                },
+                {
+                    name = "Cliffs of Moher",
+                    lat = 52.93499626,
+                    long = -9.46916479,
+                    type = "map",
+                    description = "The Cliffs of Moher are sea cliffs located at the southwestern edge of the Burren region in County Clare, Ireland. They run for about 14 kilometres. At their southern end, they rise 120 metres above the Atlantic Ocean at Hag's Head, and, 8 kilometres to the north, they reach their maximum height of 214 metres just north of O'Brien's Tower, a round stone tower near the midpoint of the cliffs, built in 1835 by Sir Cornelius O'Brien, then continue at lower heights. The closest settlements are the villages of Liscannor 6 km to the south, and Doolin 7 km to the north. From the cliffs, and from atop the tower, visitors can see the Aran Islands in Galway Bay, the Maumturks and Twelve Pins mountain ranges to the north in County Galway, and Loop Head to the south. The cliffs rank among the most visited tourist sites in Ireland, with around 1.5 million visits per annum."
+                },
+            ]
+        },
+
+        {
+            name = "Limerick",
+            lat = 52.668018,
+            long = -8.630498,
+            description = "Limerick was founded by the Vikings around 922 AD. The Vikings were great traders and craftsmen and Limerick had contacts with other Viking towns all over Europe. St Mary’s Cathedral was founded in the twelfth century and remains the oldest building in Limerick still in use for its original purpose.",
+            iconImage = {
+                url: "https://pbs.twimg.com/profile_images/683021906732302336/mf_6n9I5_400x400.jpg", // url
+                scaledSize: new google.maps.Size(50, 50) // size
+            },
+            attractions = [
+                {
+                    name = "St Mary's Cathedral",
+                    lat = 52.667663996,
+                    long = -8.620664184,
+                    type = "church",
+                    description = "St Mary's (also known as Limerick Cathedral), is a cathedral of the Church of Ireland in Limerick city, Ireland which is dedicated to the Blessed Virgin Mary. It is in the ecclesiastical province of Dublin. Previously the cathedral of the Diocese of Limerick, it is now one of three cathedrals in the United Dioceses of Limerick and Killaloe."
+                },
+                {
+                    name = "Rock of Cashel",
+                    lat = 52.518664592,
+                    long = -7.887329784,
+                    type = "castle",
+                    description = "The Rock of Cashel, also known as Cashel of the Kings and St. Patrick's Rock, is a historic site located at Cashel, County Tipperary, Ireland. Initially, the Rock of Cashel was the main royal site for the kings of Munster. During its' time as a royal site (compare Rathcroghan), most likely, there would have been a stone fort on top of the hill as the name 'cashel' means stone fort. Most likely, the site had ritual and ceremonial significance."
+                },
+                {
+                    name = "Ring of Kerry",
+                    lat = 52.067539,
+                    long = -9.523854,
+                    type = "map",
+                    description = "The Ring of Kerry is a scenic drive around the Iveragh Peninsula in southwest Ireland’s County Kerry. Its 179km-long, circular route takes in rugged and verdant coastal landscapes and rural seaside villages. Skellig Michael, a rocky island with an abandoned 7th-century Christian monastery, is a major destination point, with several boats from Portmagee making the 12km crossing during the warmer months."
+                },
+            ]
+        },
+
+        {
+            name = "Galway",
+            lat = 53.270962,
+            long = -9.062691,
+            description = "Galway, a harbour city on Ireland’s west coast, sits where the River Corrib meets the Atlantic Ocean. The city’s hub is 18th-century Eyre Square, a popular meeting spot surrounded by shops and traditional pubs that often offer live Irish folk music. Nearby, stone-clad cafes, boutiques and art galleries line the winding lanes of the Latin Quarter, which retains portions of the medieval city walls.",
+            iconImage = {
+                url: "https://pbs.twimg.com/profile_images/683021906732302336/mf_6n9I5_400x400.jpg", // url
+                scaledSize: new google.maps.Size(50, 50) // size
+            },
+            attractions = [
+                {
+                    name = "Croagh Patrick",
+                    lat = 53.760047,
+                    long = -9.659536,
+                    type = "map",
+                    description = "Croagh Patrick (Irish: Cruach Phádraig, meaning '(Saint) Patrick's Stack'), nicknamed the Reek, is a 764 metres (2,507 ft) mountain and an important site of pilgrimage in County Mayo in Ireland. It is 8 kilometres (5 mi) from Westport, above the villages of Murrisk and Lecanvey. It is the third highest mountain in County Mayo after Mweelrea and Nephin. It is climbed by pilgrims on Reek Sunday every year, which is the last Sunday in July. It forms the southern part of a U-shaped valley created by a glacier flowing into Clew Bay in the last Ice Age."
+                },
+                {
+                    name = "Connemara National Park",
+                    lat = 53.550664464,
+                    long = -9.940162906,
+                    type = "map",
+                    description = "Situated in the West of Ireland in County Galway, Connemara National Park covers some 2,000 hectares of scenic mountains, expanses of bogs, heaths, grasslands and woodlands. Some of the Park’s mountains, namely Benbaun, Bencullagh, Benbrack and Muckanaght, are part of the famous Twelve Bens or Beanna Beola range. The park was established and opened to the public in 1980. Connemara National Park is one of six national parks in Ireland that are managed by the National Parks and Wildlife Service of the Department of Culture, Heritage and the Gaeltacht."
+                },
+                {
+                    name = "Dunguaire Castle",
+                    lat = 53.143,
+                    long = -8.939,
+                    type = "castle",
+                    description = "Dunguaire Castle is a 16th-century tower house on the southeastern shore of Galway Bay in County Galway, Ireland, near Kinvara. The name derives from the Dun of King Guaire, the legendary king of Connacht. The castle's 75-foot tower and its defensive wall have been restored, and the grounds are open to tourists during the summer. The castle's slates are from an old school in Kinvara."
+                },
+            ]
+        },
     ]
 
 
@@ -104,7 +263,6 @@ function initMap() {
       ['Dunguaire Castle', 53.143, -8.939, 1],
 
       // Near Limerick
-      ['Cliffs of Moher', 52.93499626, -9.46916479, 1],
       ['Rock of Cashel', 52.518664592, -7.887329784, 1],
       ['Ring of Kerry', 52.067539, -9.523854, 1],
       
@@ -115,8 +273,8 @@ function initMap() {
       ['Cliffs of Moher', 52.93499626, -9.46916479, 1],
 
       // Dublin
-      ['Trinity College', 53.343792, -6.254572, 1],
-      ['St. Stephens Green', 53.336165322, -6.255498978, 1],
+      ['Kilmainham Gaol', 53.338498646, -6.30583211, 1],
+      ['Malahide Castle', 53.440164906, -6.158999364, 1],
       ['Guinness Storehouse', 53.33833198, -6.285498858, 1],
       ['Christ Church Cathedral', 53.33916531, -6.269498922, 1],
       ['Newgrange', 53.6899522402, -6.47168311326, 1],
