@@ -48,9 +48,9 @@ $(function() {
         console.log("hello")
         for (let attraction of location.attractions) {
             marker = new google.maps.Marker({
-                position: new google.maps.LatLng(location.lat, location.long),
+                position: new google.maps.LatLng(attraction.lat, attraction.long),
                 map: map,
-                icon: icon,
+                icon: {url:attraction.type,scaledSize: new google.maps.Size(50, 50),},
                 zoom: 6
             });
 
