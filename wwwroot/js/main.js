@@ -1,5 +1,7 @@
+const mapZoomThreshold = 7;
 
-$(function() {
+
+$(function () {
     console.log(locations)
 
 
@@ -15,20 +17,23 @@ $(function() {
         }
     } */
 
+    // Create Map
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 7,
+        zoom: mapZoomThreshold,
         center: new google.maps.LatLng(53.350140, -6.266155),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
     var infowindow = new google.maps.InfoWindow();
+    //
 
     /* var marker, i;
     var icon = {
         url: 'https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png', // url
         scaledSize: new google.maps.Size(50, 50), // size
     }; */
-    
+
+    // Create Markers for cities
     for (let location of locations) {
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(location.lat, location.long),
@@ -39,30 +44,54 @@ $(function() {
             }
         });
 
+        location.marker = marker;
+
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
-                infowindow.setContent(location.name);
-                infowindow.open(map, marker);
+                map.setZoom(9);
+                map.setCenter(new google.maps.LatLng(location.lat, location.long),)
+                console.log(location);
             }
         })(marker));
         console.log("hello")
+
+        //Create Markers for attractions
         for (let attraction of location.attractions) {
+            console.log(attraction.type);
+            console.log(attraction.lat);
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(attraction.lat, attraction.long),
                 map: map,
-                icon: {url:attraction.type,scaledSize: new google.maps.Size(50, 50),},
-                zoom: 6
+                icon: {
+                    url: attraction.type,
+                    scaledSize: new google.maps.Size(25, 25),
+                },
+                visible: false,
             });
+
+            attraction.marker = marker;
 
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
-                    infowindow.setContent(location.name);
-                    infowindow.open(map, marker);
+                    
                 }
             })(marker));
         }
     }
 
+    google.maps.event.addListener(map, 'zoom_changed', function () {
+        var zoom = map.getZoom();
+        console.log(zoom);
+        // iterate over markers and call setVisible
+        for (let location of locations) {
+            location.marker.setVisible(zoom <= mapZoomThreshold);
+
+            for (let attraction of location.attractions) {
+                attraction.marker.setVisible(zoom > mapZoomThreshold);
+            }
+        }
+        
+    });
     /* for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -80,4 +109,3 @@ $(function() {
 });
 
 console.log(locations)
-    
