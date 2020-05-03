@@ -17,7 +17,7 @@ $(function () {
         }
     } */
 
-    // Create Map
+    // Create Map and center to Ireland
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: mapZoomThreshold,
         center: new google.maps.LatLng(53.350140, -6.266155),
@@ -46,6 +46,7 @@ $(function () {
 
         location.marker = marker;
 
+        // On click event listener to zoom and center on selected city
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
                 map.setZoom(9);
@@ -71,6 +72,7 @@ $(function () {
 
             attraction.marker = marker;
 
+            // Create cards for attractions
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
                     
@@ -79,6 +81,7 @@ $(function () {
         }
     }
 
+    // On zoom change event listener to change visibility of marker on different zooms
     google.maps.event.addListener(map, 'zoom_changed', function () {
         var zoom = map.getZoom();
         console.log(zoom);
