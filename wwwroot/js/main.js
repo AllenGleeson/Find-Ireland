@@ -5,6 +5,64 @@ let itinerary = [];
 
 
 $(function () {
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: mapZoomThreshold,
+        center: new google.maps.LatLng(irelandLat, irelandLong),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    for (let town of towns) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(town.lat, town.long),
+            map: map,
+            icon: {
+                url: location.iconImage,
+                scaledSize: new google.maps.Size(50, 50)
+            }
+        });
+
+        google.maps.event.addListener(marker, 'click', (function () {
+            return function () {
+                map.setZoom(9);
+                map.setCenter(new google.maps.LatLng(town.lat, town.long))
+            }
+        })(marker));
+
+
+        var request = {
+            location: new google.maps.LatLng(town.lat, town.long),
+            radius: 50000,
+            query: 'Attraction'
+        };
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, function (attractions) {
+            console.log(attraction);
+            for (const attraction of attractions) {
+                let iconUrl = "./wwwroot/images/icons/modernmonument.png";
+                if(attraction.types.find(t => t == LocationType.POINT_OF_INTEREST)){
+                    iconUrl = "./wwwroot/images/icons/church-2.png";
+                }
+
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(attraction.geomotry.location.lat, attraction.geomotry.location.lng),
+                    map: map,
+                    icon: {
+                        url: iconUrl,
+                        scaledSize: new google.maps.Size(25, 25),
+                    },
+                    visible: false,
+                });
+                createAttractionCard(attraction);
+            }
+        });
+    }
+
+
+
+
+
+
     let attractionCardContainer = document.getElementsByClassName("card-row");
 
     //let searchedTown = towns.find(t => t.name == searchTerm);
@@ -12,14 +70,10 @@ $(function () {
     //let allAttractions = towns.map(t => t.attractions).find;
 
     // Create Map and center to Ireland
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: mapZoomThreshold,
-        center: new google.maps.LatLng(irelandLat, irelandLong),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+
 
     // Create Markers for cities
-    for (let location of locations) {
+    /* for (let location of locations) {
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(location.lat, location.long),
             map: map,
@@ -71,10 +125,10 @@ $(function () {
 
             createAttractionCard(attraction);
         }
-    }
+    } */
 
     // On zoom change event listener to change visibility of marker on different zooms
-    google.maps.event.addListener(map, 'zoom_changed', function () {
+    /* google.maps.event.addListener(map, 'zoom_changed', function () {
         var zoom = map.getZoom();
         // iterate over markers and call setVisible
         for (let location of locations) {
@@ -85,7 +139,7 @@ $(function () {
             }
         }
 
-    });
+    }); */
 
     //Create cards
     function createAttractionCard(attraction) {
@@ -112,8 +166,8 @@ $(function () {
         let itineraryBtn = document.createElement('button');
         itineraryBtn.innerText = "Add to itinerary";
         itineraryBtn.className = 'btn btn-primary';
-        itineraryBtn.addEventListener("click",function(){
-            console.log("Added to itinerary",attraction.name);
+        itineraryBtn.addEventListener("click", function () {
+            console.log("Added to itinerary", attraction.name);
         });
 
         cardBody.appendChild(cardImage);

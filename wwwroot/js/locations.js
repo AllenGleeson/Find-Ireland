@@ -1,14 +1,14 @@
 
 // Types of icons to use for different types of attractions
 const LocationType = {
-    CHURCH: "./wwwroot/images/icons/church-2.png",
+    POINT_OF_INTEREST: "./wwwroot/images/icons/church-2.png",
     FOOTPRINT: "./wwwroot/images/icons/footprint.png",
     MONUMENT: "./wwwroot/images/icons/modernmonument.png",
     RUINS: "./wwwroot/images/icons/ruins-2.png"
 }
 
 // Array of cities and attractions near those cities. Contains data for markers and cards
-var locations = [
+var towns = [
     {
         name: "Belfast",
         lat: 54.607868,
