@@ -72,7 +72,15 @@ function createAttractionMarkers(town) {
                 icon: {
                     url: iconUrl,
                     scaledSize: new google.maps.Size(25, 25),
-                }
+                },
+                nearestTown: town.name
+            });
+
+            google.maps.event.addListener(marker, 'on_click', function () {
+                var zoom = map.getZoom();
+
+                console.log(attractions);
+        
             });
 
             // On zoom change event listener to change visibility of marker on different zooms
