@@ -41,6 +41,9 @@ $(function () {
         // Pass the town into createAttractionMarkers to create markers for attractions near that town
         createAttractionMarkers(town);
     }
+
+    
+    
 });
 
 //
@@ -56,7 +59,7 @@ function createAttractionMarkers(town) {
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, function (attractions) {
         for (const attraction of attractions) {
-            console.log(attraction);
+            //console.log(attraction);
             let iconUrl = "./wwwroot/images/icons/modernmonument.png";
 
             for (const type of locationType) {
@@ -66,22 +69,7 @@ function createAttractionMarkers(town) {
             }
 
 
-            marker = new google.maps.Marker({
-                position: new google.maps.LatLng(attraction.geometry.location.lat(), attraction.geometry.location.lng()),
-                map: map,
-                icon: {
-                    url: iconUrl,
-                    scaledSize: new google.maps.Size(25, 25),
-                },
-                nearestTown: town.name
-            });
-
-            google.maps.event.addListener(marker, 'on_click', function () {
-                var zoom = map.getZoom();
-
-                console.log(attractions);
-        
-            });
+            
 
             // On zoom change event listener to change visibility of marker on different zooms
             /* google.maps.event.addListener(map, 'zoom_changed', function () {
@@ -98,16 +86,52 @@ function createAttractionMarkers(town) {
             }); */
 
             // Add the location to a variable in the marker to keep track of which is the nearest town
-            createAttractionCard(attraction);
+
+            // Find a description from wikipedia and create a attraction card
+            $.ajax({
+                url: `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&profile=fuzzy&search=${attraction.name}&limit=1&namespace=0&format=json`
+            }).done(function (response) {
+                
+                if(response[1].length){
+                    console.log("Wiki Title:",response);
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(attraction.geometry.location.lat(), attraction.geometry.location.lng()),
+                        map: map,
+                        icon: {
+                            url: iconUrl,
+                            scaledSize: new google.maps.Size(25, 25),
+                        },
+                        nearestTown: town.name
+                    });
+        
+                    google.maps.event.addListener(marker, 'on_click', function () {
+                        var zoom = map.getZoom();
+        
+                        console.log(attractions);
+                
+                    });
+
+                    $.ajax({
+                        url: `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&titles=${response[1]}&prop=extracts&exintro&explaintext`
+                        
+                    }).done(function (attractionDescription) {
+                        console.log("Description:", attractionDescription)
+                        createAttractionCard(attraction, attractionDescription);
+                    });
+                    
+                }
+            });
+
+            
         }
     });
 }
 
 //Create cards
-function createAttractionCard(attraction) {
+function createAttractionCard(attraction, response) {
     let attractionCardContainer = document.getElementsByClassName("card-row");
     let card = document.createElement('div');
-    card.className = 'card attraction shadow cursor-pointer col-sm-3 d-none';
+    card.className = 'card attraction shadow cursor-pointer col-sm-3';
 
     let cardImage = document.createElement('div');
     cardImage.className = "card-img-top";
@@ -121,9 +145,14 @@ function createAttractionCard(attraction) {
     title.innerText = attraction.name;
     title.className = 'card-title text-center';
 
+    // Use the response from wikipedia to create the description
+    page = response['query']['pages'];
+    desc = Object.keys(page)[0];
+    console.log(page);
     let description = document.createElement('p');
-    description.innerText = attraction.description;
+    description.innerText = page[desc].extract;
     description.className = 'card-text';
+    
 
     let itineraryBtn = document.createElement('button');
     itineraryBtn.innerText = "Add to itinerary";

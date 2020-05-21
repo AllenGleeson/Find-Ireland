@@ -28,13 +28,27 @@ function createCityWeatherForcast(town, response) {
     let weatherDescription = document.createElement('div');
     weatherDescription.innerText = response.data[0].weather.description;
 
+    let weatherDisplay = document.createElement('div');
+    
     let weatherImage = document.createElement('img');
     weatherImage.setAttribute("src", "./wwwroot/images/icons/weathericons/"+response.data[0].weather.icon+".png");
     weatherImage.setAttribute("alt", response.data[0].weather.description);
 
+    let weatherTempContainer = document.createElement('div');
+
+    let weatherTemperature = document.createElement('div');
+    weatherTemperature.innerText = response.data[0].temp;
+
+    let tempType = document.createElement('div');
+    tempType.innerText = "°C";
+
     cityContainer.appendChild(cityName);
     cityContainer.appendChild(weatherDescription);
-    cityContainer.appendChild(weatherImage);
+    weatherDisplay.appendChild(weatherImage);
+    weatherTempContainer.appendChild(weatherTemperature);
+    weatherTempContainer.appendChild(tempType);
+    weatherDisplay.appendChild(weatherTempContainer);
+    cityContainer.appendChild(weatherDisplay);
     weatherForcastContainer[0].appendChild(cityContainer);
 
 }
