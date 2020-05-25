@@ -30,17 +30,24 @@ $(function () {
             }
         });
 
-        // Event listener to zoom in to selected town marker
+        // Event listener to zoom in to selected town marker, then display that towns nearby attractions as cards
+        // and also hide the cards that are not nearby.
         google.maps.event.addListener(marker, 'click', (function () {
             return function () {
                 map.setZoom(9);
-                map.setCenter(new google.maps.LatLng(town.lat, town.long))
+                map.setCenter(new google.maps.LatLng(town.lat, town.long));
+                $(".card").hide();
+                $("." + town.name).show();
+                showCityinfo(town);
+                console.log(town.name);
             }
         })(marker));
 
         // Pass the town into createAttractionMarkers to create markers for attractions near that town
         createAttractionMarkers(town);
+        
     }
+    
 
 
 
@@ -51,6 +58,7 @@ $(function () {
 //
 
 function createAttractionMarkers(town) {
+    // Request will search each town for any nearby 'Attraction'
     var request = {
         location: new google.maps.LatLng(town.lat, town.long),
         radius: 50000,
@@ -59,13 +67,18 @@ function createAttractionMarkers(town) {
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, function (attractions) {
         for (const attraction of attractions) {
-            let iconUrl = "./wwwroot/images/icons/modernmonument.png";
+
+            //
+            //This will be to set a marker icon, depending on the type of attraction
+            //
+
+            /* let iconUrl = "./wwwroot/images/icons/modernmonument.png";
 
             for (const type of locationType) {
                 if (attraction.types.find(t => t == type.name)) {
                     iconUrl = type.iconUrl;
                 }
-            }
+            } */
 
             // On zoom change event listener to change visibility of marker on different zooms
             /* google.maps.event.addListener(map, 'zoom_changed', function () {
@@ -81,16 +94,13 @@ function createAttractionMarkers(town) {
         
             }); */
 
-            // Add the location to a variable in the marker to keep track of which is the nearest town
-
             // Find a description from wikipedia and create a attraction card
             $.ajax({
+                // This will search wikipedia for the pages that match the attraction
                 url: `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&search=${attraction.name}&namespace=0&format=json`
                 //url: `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${attraction.name}`
             }).done(function (response) {
                 if (response[1].length) {
-                    console.log("Wiki Title:", response);
-                    console.log(response[3][0].split('wiki/').pop())
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(attraction.geometry.location.lat(), attraction.geometry.location.lng()),
                         map: map,
@@ -104,11 +114,12 @@ function createAttractionMarkers(town) {
                     google.maps.event.addListener(marker, 'on_click', function () {
                         var zoom = map.getZoom();
 
-                        console.log(attractions);
+                        //console.log(attractions);
 
                     });
 
                     $.ajax({
+                        // This query will use the pages it finds above and take the intro for that page as a description
                         url: `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&titles=${response[3][0].split('wiki/').pop()}&prop=extracts&exintro&explaintext`
 
                     }).done(function (attractionDescription) {
@@ -116,7 +127,7 @@ function createAttractionMarkers(town) {
                         page = attractionDescription['query']['pages'];
                         desc = Object.keys(page)[0];
                         if(page[desc].extract.length > 0){
-                            createAttractionCard(attraction, page[desc].extract);
+                            createAttractionCard(town, attraction, page[desc].extract);
                         }
                     });
 
@@ -129,14 +140,14 @@ function createAttractionMarkers(town) {
 }
 
 //Create cards
-function createAttractionCard(attraction, attractionDescription) {
+function createAttractionCard(town, attraction, attractionDescription) {
     let attractionCardContainer = document.getElementsByClassName("card-columns");
     let card = document.createElement('div');
-    card.className = 'card attraction shadow cursor-pointer';
+    card.className = `card attraction ${town.name} shadow cursor-pointer`;
 
     //console.log("Attraction photo:", '"' + attraction.photos[0].html_attributions[0].split('"')[1] + '"');
     //console.log("Attraction Obj", attraction);
-    console.log("Attraction URL:", attraction.photos[0].getUrl());
+    //console.log("Attraction URL:", attraction.photos[0].getUrl());
     let cardImage = document.createElement('img');
     cardImage.className = "card-img-top";
     cardImage.setAttribute("src", attraction.photos[0].getUrl());
@@ -152,7 +163,7 @@ function createAttractionCard(attraction, attractionDescription) {
     // Use the response from wikipedia to create the description
     //page = attractionDescription['query']['pages'];
     //desc = Object.keys(page)[0];
-    console.log(page);
+    //console.log(page);
     let description = document.createElement('p');
     description.innerText = attractionDescription;
     description.className = 'card-text';
@@ -171,5 +182,40 @@ function createAttractionCard(attraction, attractionDescription) {
     cardBody.appendChild(itineraryBtn);
     card.appendChild(cardBody);
     attractionCardContainer[0].appendChild(card);
+    // Will create all cards and then hide then on start up
+    $(".card").hide();
+}
 
+// On click event for each city button. Will do the same thing as clicking on the city's image on the map
+$(".city-button").click(function(){
+    var townName = $(this).attr("townName");
+    var town = towns.find(t => t.name == townName);
+    showCityinfo(town);
+    $(".card").hide();
+    $("." + town.name).show();
+});
+
+// Create the city description above the cards
+function showCityinfo(town){
+    // Remove the city container if it already exists so there arent multiple city descriptions at the same time
+    $('.cityContainer').remove();
+
+    let cityInfoContainer = document.getElementsByClassName("cityInfo");
+    cityInfoContainer.className = "shadow cursor-pointer p-4";
+
+    let cityContainer = document.createElement('div');
+    cityContainer.className = "cityContainer";
+
+    let cityName = document.createElement('h2');
+    cityName.className = `text-center`;
+    cityName.innerText = town.name;
+
+    let cityDescription = document.createElement('p');
+    cityDescription.className = `p-4`;
+    cityDescription.innerText = town.description;
+
+
+    cityContainer.appendChild(cityName);
+    cityContainer.appendChild(cityDescription);
+    cityInfoContainer[0].appendChild(cityContainer);
 }

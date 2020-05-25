@@ -23,23 +23,23 @@ var towns = [
         name: "Sligo",
         lat: 54.26969,
         long: -8.46943,
-        description: "Belfast, the capital and largest city of Northern Ireland, is located at the threshold of the River Lagan and is surrounded by low hills. It is a natural location for the shipping trade, one of the industries that made Belfast famous.",
+        description: "Renowned for its history, culture and magical mythology Sligo is the vibrant heart of the north-west. Incredible mountains form a stunning backdrop to the town, including Benbulben which oversees the Atlantics roar and King Mountains.",
         iconImage: "https://pbs.twimg.com/profile_images/683021906732302336/mf_6n9I5_400x400.jpg",
         backgroundImage: "https://s3.visitbelfast.com/app/uploads/2019/05/city-hall.jpg_1557904957.jpg"
     },
     {
         name: "LondonDerry",
-        lat: 54.26969,
-        long: -8.46943,
-        description: "Belfast, the capital and largest city of Northern Ireland, is located at the threshold of the River Lagan and is surrounded by low hills. It is a natural location for the shipping trade, one of the industries that made Belfast famous.",
+        lat: 55.006763,
+        long: -7.318268,
+        description: "Londonderry, or simply Derry, is a large city in North Ireland, with about 85,000 residents. The city is very old and has a great deal of tourist attractions, starting from old fortifications and ending up with numerous museum of arts and exhibitions. Other famous landmarks include St Eugene's Cathedral, the Amelia Earhart Centre And Wildlife Sanctuary, Long Tower Church, O'Doherty Tower, the Apprentice Boys Memorial Hall, the Foyle Valley Railway Centre, and many more.",
         iconImage: "https://pbs.twimg.com/profile_images/683021906732302336/mf_6n9I5_400x400.jpg",
         backgroundImage: "https://s3.visitbelfast.com/app/uploads/2019/05/city-hall.jpg_1557904957.jpg"
     },
     {
         name: "Waterford",
-        lat: 54.26969,
-        long: -8.46943,
-        description: "Belfast, the capital and largest city of Northern Ireland, is located at the threshold of the River Lagan and is surrounded by low hills. It is a natural location for the shipping trade, one of the industries that made Belfast famous.",
+        lat: 52.25833,
+        long: -7.11194,
+        description: `Waterford (from Old Norse Veðrafjǫrðr, meaning "ram (wether) fjord"; Irish: Port Láirge, meaning "Lárag's port") is a city in Ireland. It is in the South-East of Ireland and is part of the province of Munster. It is the oldest and the fifth most populous city within Ireland. It is the eighth most populous city on the island of Ireland.`,
         iconImage: "https://pbs.twimg.com/profile_images/683021906732302336/mf_6n9I5_400x400.jpg",
         backgroundImage: "https://s3.visitbelfast.com/app/uploads/2019/05/city-hall.jpg_1557904957.jpg"
     },
@@ -73,7 +73,7 @@ var towns = [
         lat: 53.270962,
         long: -9.062691,
         description: "Galway, a harbour city on Ireland’s west coast, sits where the River Corrib meets the Atlantic Ocean. The city’s hub is 18th-century Eyre Square, a popular meeting spot surrounded by shops and traditional pubs that often offer live Irish folk music. Nearby, stone-clad cafes, boutiques and art galleries line the winding lanes of the Latin Quarter, which retains portions of the medieval city walls.",
-        iconImage: "https://i.imgur.com/PgVBGNB.jpg",
+        iconImage: "https://www.ireland101.com/assets/img/logo_83a9dcb29fa1f714991bba883b991e77.jpg",
         backgroundImage: "https://s3.visitbelfast.com/app/uploads/2019/05/city-hall.jpg_1557904957.jpg"
     }
 ]
