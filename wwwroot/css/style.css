@@ -1,0 +1,223 @@
+/*   Colors: #1cba24  */
+/*   Colors: #ffffff  */
+/*   Colors: #000000  */
+/*   Colors: #fafafa  */
+
+/*   Fonts: 'Roboto Slab', serif  */
+
+
+/*  Header  */
+/**/
+/**/
+/**/
+#siteIcon{
+    font-size: 22px;
+}
+.navbar-brand img{
+    height: 50px;
+    border-color: #ffffff;
+}
+
+.navbar-nav {
+    font-size: 20px;
+    color: black;
+}
+
+.navbar-brand {
+    font-family: 'Roboto Slab', serif;
+    font-size: 30px;
+}
+
+/*  Footer  */
+/**/
+/**/
+/**/
+
+footer {
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.fa-ul{
+    margin-left: 50px;
+    margin-bottom: auto;
+}
+
+footer a{
+    color: #fafafa;
+}
+
+
+
+
+/*   Index.html -- Main Page   */
+/**/
+/*   Main captain text   */
+.jumbotron {
+    background-image: url("/wwwroot/images/other/ireland.jpg");
+    background-size: cover;
+    height: 750px;
+  }
+
+.jumbotron h2{
+    margin-top: 230px;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+/*  Map     */
+#map {
+    height: 750px;
+    width: 100%;
+    margin: auto;
+}
+
+/*   City Buttons   */
+.btn-primary{
+    background-color: #1cba24;
+    border-color: #ffffff;
+}
+
+.active{
+    border-color: #000000;
+}
+
+/*   City Details   */
+.cityInfo h2{
+    font-family: 'Roboto Slab', serif;
+    font-size: 5rem;
+}
+
+.cityInfo p{
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.4rem;
+}
+
+/*   Attraction Cards   */
+.card-columns, img {
+    border-radius: 10px;
+}
+
+.card-columns h5 {
+    padding: 10px;
+    border-bottom: 5px solid #1cba24;;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+}
+
+.card-columns p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+}
+
+/**/
+
+
+/*   About.html - About Ireland Page   */
+/**/
+/**/
+
+/*   About Ireland Heading and Description  */
+/**/
+.locationDetails{
+    margin: 2.5rem;
+    font-family: 'Roboto Slab', serif;
+}
+
+.locationDetails h1{
+    border-bottom: 5px solid #1cba24;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.locationDescription{
+    margin: 1rem;
+    font-size: 1.4rem;
+}
+
+/*  Image Carousel   */
+/**/
+/**/
+
+.carouselcontainer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.carouselcontainer p{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.carousel img{
+    width: 100%;
+}
+
+#FeaturedImages {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel-item img {
+        max-height: 300px;
+    }
+    #FeaturedImages {
+        width: fit-content;
+    }
+}
+
+/*  Some Facts about Ireland in a list   */
+/**/
+/**/
+.irelandinfo{
+    font-family: 'Roboto Slab', serif;
+    margin: 2.5rem;
+}
+
+.irelandinfo h2{
+    border-bottom: 5px solid #1cba24;
+    padding-bottom: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.irelandinfo ul{
+    list-style: none;
+}
+
+.irelandinfo li{
+    margin: 1rem;
+    font-size: 1.4rem;
+}
+
+/*  Weather Forecast   */
+/**/
+/**/
+
+.irelandWeather{
+    margin: 2.5rem;
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+}
+
+.irelandWeather h2{
+    border-bottom: 5px solid #1cba24;
+    padding-bottom: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.irelandWeather p{
+    font-size: 1.5rem;
+}
+
+.weatherCity{
+    font-size: 1.2rem;
+    float: left;
+}
+
+.temp div{
+    float: left;
+}

@@ -8,59 +8,57 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Stoke&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
-    <title>Home</title>
-    <style>
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 750px;  /* The height is 400 pixels */
-        width: 50%;  /* The width is the width of the web page */
-        margin: auto;
-       }
-    </style>
+    <link rel="stylesheet" href="./wwwroot/css/style.css" type="text/css" />
+    <title>Home - Find Ireland</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="./index.html">Where To Go</a>
+                <div id="siteIcon">Find Ireland</div>
+                <a class="navbar-brand" href="./index.html"><img src="./wwwroot/images/other/Irelandicon.png"
+                    alt="Home Icon"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="./index.html">Plan a trip<span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="./about.html">Statistics</a>
+                        <a class="nav-item nav-link active" href="./index.html">Home<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link" href="./about.html">About Ireland</a>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
+    
 
     <section>
-        <div class="jumbotron">
+        <div class="jumbotron text-center mb-0">
             <div class="container jumbotron-about p-4">
                 <h2>Ireland has many interesting sites to see. Please look through some below to if you'd like to visit the Emerald Ilse</h2>
             </div>
         </div>
-        
-        <div>
-            <button type="button" class="city-button" townName="Dublin">Dublin</button>
-            <button type="button" class="city-button" townName="Belfast">Belfast</button>
-            <button type="button" class="city-button" townName="Cork">Cork</button>
-            <button type="button" class="city-button" townName="Galway">Galway</button>
-            <button type="button" class="city-button" townName="Limerick">Limerick</button>
-            <button type="button" class="city-button" townName="Sligo">Sligo</button>
-            <button type="button" class="city-button" townName="LondonDerry">LondonDerry</button>
-            <button type="button" class="city-button" townName="Waterford">Waterford</button>
-        </div>
-        
-        <div id="map"></div>
+    </section>
 
-        <style>
-            .card-columns, img {border-radius: 10px;}
-        </style>
+    <section>
+        <div id="map"></div>
+    </section>
+    <br>
+    <section>
+        <div class="container text-center">
+            <button type="button" class="btn btn-primary city-button" townName="Dublin">Dublin</button>
+            <button type="button" class="btn btn-primary city-button" townName="Belfast">Belfast</button>
+            <button type="button" class="btn btn-primary city-button" townName="Cork">Cork</button>
+            <button type="button" class="btn btn-primary city-button" townName="Galway">Galway</button>
+            <button type="button" class="btn btn-primary city-button" townName="Limerick">Limerick</button>
+            <button type="button" class="btn btn-primary city-button" townName="Sligo">Sligo</button>
+            <button type="button" class="btn btn-primary city-button" townName="LondonDerry">LondonDerry</button>
+            <button type="button" class="btn btn-primary city-button" townName="Waterford">Waterford</button>
+        </div>
+    </section>
+    <br>
+    <section>
         <div class="container">
             <div class="cityInfo"></div>
             
@@ -70,9 +68,9 @@
     </section>
 
     <footer class="p-4 bg-dark text-light">
-        <div class="container">
-            <a href="mailto:name@email.com" class="contactLinks"><i class="fa-li fa fa-envelope-square"></i><span>Your Email</span></a>
-        </div>
+        <ul class="fa-ul">
+            <li><a href="mailto:name@email.com" class="contactLinks"><i class="fa-li fa fa-envelope-square"></i><span>Please email here to request more information</span></a></li>
+        </ul>
     </footer>
 
     <script
@@ -80,6 +78,7 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4goDoxsaCW4gMIkitRO100lWVXO6WPUs&libraries=places" type="text/javascript"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="wwwroot/js/locations.js" type="text/javascript"></script>
     <script src="wwwroot/js/main.js" type="text/javascript"></script>
 </body>
