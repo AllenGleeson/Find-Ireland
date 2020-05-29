@@ -1,35 +1,100 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Find Ireland
 
-Welcome AllenGleeson,
+A tourism website to explore different tourist attractions across Ireland. The website is API heavy and uses JS and Jquery to create a website to see nearby
+tourist attractions to the selected towns.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+## UX
 
-## Gitpod Reminders
+It is designed for a general audience who is curious about visiting Ireland.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- Upon visiting the home page users will be directed to click on one of the town images on the map or click on
+- one of the town buttons below the map.
+- When clicked a list of attraction cards will populate below as well as a description for that clicked town.
 
-`python3 -m http.server`
+- The about page gives more information about Ireland with some select images displayed to the user.
+- There is also a weather forcast for the weather of the day.
 
-A blue button should appear to click: *Expose*,
 
-Another blue button should appear to click: *Open Browser*.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Features
 
-A blue button should appear to click: *Expose*,
+The header is created with the bootstrap navbar.
+https://getbootstrap.com/docs/4.3/components/navbar/
 
-Another blue button should appear to click: *Open Browser*.
+The about page features a bootstrap carousel to go through a few selected images.
+https://getbootstrap.com/docs/4.0/components/carousel/
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+The cards create when clicking on a town are done with bootstrap - card.
+https://getbootstrap.com/docs/4.3/components/card/
 
-## Updates Since The Instructional Video
+Check API Used below for the API used in this website.
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+## Technologies Used
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+This project used Bootstrap4, HTML5 & CSS3, JS, Jquery.
+Github is used to host the code.
+It was first created and edited using Gitpod but after some time I decided to switch onto Visual Studio Code.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
---------
+## API Used
 
-Happy coding!
+This application is largely API based. Here are the api that I choose to use:
+
+Google Maps API
+https://developers.google.com/maps/documentation
+
+Google Places API
+https://developers.google.com/places/web-service/intro
+
+Wikipedia API
+https://www.mediawiki.org/wiki/MediaWiki
+
+Weatherbit by weatherio
+https://www.weatherbit.io/
+
+
+## Testing
+
+1. Home Page:
+    1. Click on marker Image:
+        Creates appopiate town and cards below map
+    2. Click on town button:
+        Creates appopiate town and cards below map
+
+2. About Page:
+    1. Click on carosel to next or previous image
+    2. Weather forcast is displayed on page start up
+
+Head:
+    Navigation buttons bring to correct page
+Footer:
+    Clicking email will let you create an email
+
+The project was tested in different screen sizes and will be mobile friendly with help from bootstrap.
+
+## Deployment
+
+I added all my code and images to github and then deployed my project through Github Pages.
+
+### Content
+- The content of the home page is created with google maps, google places and wikipedia to create attraction cards for each town.
+
+### Media
+- The images used in the carosel and the main image on the main page were found through google
+- The card images were taken from Google Places API
+- Map markers were created with the Maps Icons Collection, credited below.
+- The weather forecast icons were taken from Weatherbit.io
+
+### Credits
+
+Maps Icons Collection https://mapicons.mapsmarker.com
+Weatherbit https://www.weatherbit.io/
+
+### Future Additions
+
+I am planning to add more cities available to search their nearby attractions. Also adding an itenerary list to take selected attraction and download them as a pdf or email them to yourself. Possible other addictions would be to add a hotel and a flight api that would allow users to see cheap flights going to Ireland and also hotels.
+
+### Prerequisites
+
+Git
+python 3
