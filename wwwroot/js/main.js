@@ -216,8 +216,8 @@ function createAttractionCard(town, attraction, attractionDescription) {
 	//console.log("Attraction Obj", attraction);
 	//console.log("Attraction URL:", attraction.photos[0].getUrl());
 	let cardImage = document.createElement('img');
-	cardImage.className = "card-img-top";
-	cardImage.setAttribute("src", attraction.photos[0].getUrl());
+    cardImage.className = "card-img-top";
+    cardImage.setAttribute("src", attraction.photos[0].getUrl());
 	cardImage.setAttribute("alt", attraction.name);
 
 	let cardBody = document.createElement('div');
