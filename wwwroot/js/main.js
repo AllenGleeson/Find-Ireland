@@ -55,7 +55,7 @@ function createTownMarkers(town) {
 			//$(".card").hide();
 			//$("." + town.name).show();
 			showCityInfo(town);
-			console.log(town.name);
+			//console.log(town.name);
 		}
 	})(marker));
 }
@@ -79,7 +79,7 @@ function createAttractionMarkers(town) {
 			//
 
 			let iconUrl = "./wwwroot/images/icons/markers/modernmonument.png";
-			console.log(iconUrl);
+			//console.log(iconUrl);
 			/* for (const type of locationType) {
 				if (attraction.types.find(t => t == type.name)) {
 					iconUrl = type.iconUrl;
@@ -181,7 +181,7 @@ function searchWikipedia(attraction, iconUrl, town) {
 					//$(".card").hide();
 					//$("." + town.name).show();
 					showCityInfo(town);
-					console.log(town.name);
+					//console.log(town.name);
 				}
 			})(marker));
 

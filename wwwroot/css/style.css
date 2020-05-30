@@ -55,7 +55,7 @@ footer a{
 /**/
 /*   Main captain text   */
 .jumbotron {
-    background-image: url("/wwwroot/images/other/ireland.jpg");
+    background-image: url("./wwwroot/images/other/ireland.jpg");
     background-size: cover;
     height: 750px;
   }
