@@ -18,6 +18,12 @@ It is designed for a general audience who is curious about visiting Ireland.
 
 ## Features
 
+Google Maps to create the map
+
+Google places to get details and a photo for each attraction
+
+Weatherbit to get a weather forcast for select cities
+
 The header is created with the bootstrap navbar.
 https://getbootstrap.com/docs/4.3/components/navbar/
 
