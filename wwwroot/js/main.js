@@ -29,12 +29,26 @@ $(function () {
 
 	}
 
+	google.maps.event.addListener(map, 'zoom_changed', function () {
+		var zoom = map.getZoom();
+		// iterate over markers and call setVisible
+		 for (let town of towns) {
+			 town.townMarker.setVisible(zoom <= mapZoomThreshold);
+
+			 for (let attraction of town.attractionMarkers) {
+				 attraction.setVisible(zoom > mapZoomThreshold);
+			 }
+		 }
+
+
+	});
+
 
 });
 
 // Create the town markers and event listeners
 function createTownMarkers(town) {
-	marker = new google.maps.Marker({
+	town.townMarker = new google.maps.Marker({
 		position: new google.maps.LatLng(town.lat, town.long),
 		map: map,
 		icon: {
@@ -45,19 +59,14 @@ function createTownMarkers(town) {
 
 	// Event listener to zoom in to selected town marker, then display that towns nearby attractions as cards
 	// and also hide the cards that are not nearby.
-	google.maps.event.addListener(marker, 'click', (function () {
+	google.maps.event.addListener(town.townMarker, 'click', (function () {
 		return function () {
 			if (map.getZoom() < 9) {
 				map.setZoom(9);
 			}
-
-			//map.setCenter(new google.maps.LatLng(town.lat, town.long));
-			//$(".card").hide();
-			//$("." + town.name).show();
 			showCityInfo(town);
-			//console.log(town.name);
 		}
-	})(marker));
+	})(town.townMarker));
 }
 //
 /* Create the markers for each attraction near the town it's checking */
@@ -79,59 +88,17 @@ function createAttractionMarkers(town) {
 			//
 
 			let iconUrl = "./wwwroot/images/icons/markers/modernmonument.png";
-			//console.log(iconUrl);
-			/* for (const type of locationType) {
-				if (attraction.types.find(t => t == type.name)) {
-					iconUrl = type.iconUrl;
-				}
-			} */
-			//console.log("Read One:",Object.keys(locationType)[0]);
-			//console.log("Read Two:",Object.keys(locationType));
+			
 			for (const attrType of attraction.types) {
-				//console.log(attrType);
 				for (var property in locationType) {
 					if (attrType == locationType[property].name) {
-						//console.log(locationType[property].iconUrl);
 						
 						iconUrl = locationType[property].iconUrl;
-						//console.log(iconUrl);
 					}
 				  }
-				//for (const locType of Object.keys(locationType)) {
-					//console.log("Loctype",locType.name);
-					/* switch(locType) {
-						case locType.tourist_attraction:
-							// code block
-							break;
-						case y:
-							// code block
-							break;
-						default:
-							// code block
-					} */
-
-				//}
 			}
 
-			/* for (let [key, value] of Object.entries(object1)) {
-				console.log(`${key}: ${value}`);
-			} */
-
 			// On zoom change event listener to change visibility of marker on different zooms
-			google.maps.event.addListener(map, 'zoom_changed', function () {
-				var zoom = map.getZoom();
-				// iterate over markers and call setVisible
-				/*  for (let location of locations) {
-					 location.marker.setVisible(zoom <= mapZoomThreshold);
-
-					 for (let attraction of location.attractions) {
-						 attraction.marker.setVisible(zoom > mapZoomThreshold);
-					 }
-				 } */
-
-
-			});
-
 			searchWikipedia(attraction, iconUrl, town); // This would call getIntro();
 		}
 	});
@@ -165,25 +132,18 @@ function searchWikipedia(attraction, iconUrl, town) {
 				nearestTown: town.name
 			});
 
-			/* google.maps.event.addListener(marker, 'on_click', function () {
-				//var zoom = map.getZoom();
-				console.log(town);
-				showCityInfo(town);
-			})(marker); */
-
 			google.maps.event.addListener(marker, 'click', (function () {
 				return function () {
 					if (map.getZoom() < 9) {
 						map.setZoom(9);
 					}
-
-					//map.setCenter(new google.maps.LatLng(town.lat, town.long));
-					//$(".card").hide();
-					//$("." + town.name).show();
 					showCityInfo(town);
-					//console.log(town.name);
 				}
 			})(marker));
+
+			marker.setVisible(false);
+
+			town.attractionMarkers.push(marker);
 
 			getIntroductions(response, attraction, town);
 		}
@@ -197,7 +157,6 @@ function getIntroductions(response, attraction, town) {
 		error: erroHandler,
 		//async: false
 	}).done(function (attractionDescription) {
-		//console.log("Description:", attractionDescription)
 		page = attractionDescription['query']['pages'];
 		desc = Object.keys(page)[0];
 		if (page[desc].extract.length > 0) {
@@ -212,9 +171,6 @@ function createAttractionCard(town, attraction, attractionDescription) {
 	let card = document.createElement('div');
 	card.className = `card attraction ${town.name} shadow cursor-pointer`;
 
-	//console.log("Attraction photo:", '"' + attraction.photos[0].html_attributions[0].split('"')[1] + '"');
-	//console.log("Attraction Obj", attraction);
-	//console.log("Attraction URL:", attraction.photos[0].getUrl());
 	let cardImage = document.createElement('img');
     cardImage.className = "card-img-top";
     cardImage.setAttribute("src", attraction.photos[0].getUrl());
@@ -228,9 +184,6 @@ function createAttractionCard(town, attraction, attractionDescription) {
 	title.className = 'card-title text-center';
 
 	// Use the response from wikipedia to create the description
-	//page = attractionDescription['query']['pages'];
-	//desc = Object.keys(page)[0];
-	//console.log(page);
 	let description = document.createElement('p');
 	description.innerText = attractionDescription;
 	description.className = 'card-text';
@@ -262,6 +215,9 @@ $(".city-button").click(function () {
 
 function showCityInfo(town) {
 	map.setCenter(new google.maps.LatLng(town.lat, town.long));
+	if (map.getZoom() < 9) {
+		map.setZoom(9);
+	}
 	$(".card").hide();
 	$("." + town.name).show();
 	setCityDesription(town);
