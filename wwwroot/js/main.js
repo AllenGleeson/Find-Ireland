@@ -88,13 +88,13 @@ function createAttractionMarkers(town) {
 			//console.log("Read One:",Object.keys(locationType)[0]);
 			//console.log("Read Two:",Object.keys(locationType));
 			for (const attrType of attraction.types) {
-				console.log(attrType);
+				//console.log(attrType);
 				for (var property in locationType) {
 					if (attrType == locationType[property].name) {
-						console.log(locationType[property].iconUrl);
+						//console.log(locationType[property].iconUrl);
 						
 						iconUrl = locationType[property].iconUrl;
-						console.log(iconUrl);
+						//console.log(iconUrl);
 					}
 				  }
 				//for (const locType of Object.keys(locationType)) {
@@ -151,7 +151,7 @@ function searchWikipedia(attraction, iconUrl, town) {
 		// This will search wikipedia for the pages that match the attraction
 		url: `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&search=${attraction.name}&namespace=0&format=json`,
 		error: erroHandler,
-		async: true
+		//async: false
 		//url: `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${attraction.name}`
 	}).done(function (response) {
 		if (response[1].length) {
@@ -195,7 +195,7 @@ function getIntroductions(response, attraction, town) {
 		// This query will use the pages it finds above and take the intro for that page as a description
 		url: `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&titles=${response[3][0].split('wiki/').pop()}&prop=extracts&exintro&explaintext`,
 		error: erroHandler,
-		async: true
+		//async: false
 	}).done(function (attractionDescription) {
 		//console.log("Description:", attractionDescription)
 		page = attractionDescription['query']['pages'];
