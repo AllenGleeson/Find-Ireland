@@ -29,27 +29,19 @@ function createCityWeatherForcast(town, response) {
     let weatherDisplay = document.createElement('div');
     let weatherImage = document.createElement('img');
     let weatherTempContainer = document.createElement('div');
-    let weatherTemperature = document.createElement('div');
-    let tempType = document.createElement('div');
     
     weatherDisplay.className = 'weatherCity';
     weatherTempContainer.className = 'temp';
-    cityContainer.className = 'col-sm-3';
-    cityName.innerText = town.name;
+    cityContainer.className = 'col-sm-3 justify-content-center d-flex';
+    cityName.innerText = town.name + ', ' + response.data[0].temp + '°C';
 
     weatherDescription.innerText = response.data[0].weather.description;
     weatherImage.setAttribute("src", "./wwwroot/images/icons/weathericons/"+response.data[0].weather.icon+".png");
     weatherImage.setAttribute("alt", response.data[0].weather.description);
-
-    weatherTemperature.innerText = response.data[0].temp;
-
-    tempType.innerText = "°C";
-
     weatherDisplay.appendChild(cityName);
     weatherDisplay.appendChild(weatherDescription);
     weatherDisplay.appendChild(weatherImage);
-    weatherTempContainer.appendChild(weatherTemperature);
-    weatherTempContainer.appendChild(tempType);
+    
     cityContainer.appendChild(weatherDisplay);
     cityContainer.appendChild(weatherTempContainer);
     
