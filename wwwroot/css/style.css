@@ -24,7 +24,6 @@
 }
 
 .navbar-brand {
-    font-family: 'Roboto Slab', serif;
     font-size: 30px;
 }
 
@@ -64,7 +63,6 @@ footer a{
 .jumbotron h2{
     margin-top: 230px;
     color: #ffffff;
-    border-color: #000000;
 }
 
 /*  Map     */
@@ -86,12 +84,10 @@ footer a{
 
 /*   City Details   */
 .cityInfo h2{
-    font-family: 'Roboto Slab', serif;
     font-size: 5rem;
 }
 
 .cityInfo p{
-    font-family: 'Roboto Slab', serif;
     font-size: 1.4rem;
 }
 
@@ -103,12 +99,10 @@ footer a{
 .card-columns h5 {
     padding: 10px;
     border-bottom: 5px solid #1cba24;;
-    font-family: 'Roboto Slab', serif;
     font-weight: bold;
 }
 
 .card-columns p {
-    font-family: 'Roboto Slab', serif;
     font-size: 1.1rem;
 }
 
@@ -122,8 +116,6 @@ footer a{
 /*   About Ireland Heading and Description  */
 /**/
 .locationDetails{
-    margin: 2.5rem;
-    font-family: 'Roboto Slab', serif;
 }
 
 .locationDetails h1{
@@ -133,7 +125,6 @@ footer a{
 }
 
 .locationDescription{
-    margin: 1rem;
     font-size: 1.4rem;
 }
 
@@ -167,7 +158,7 @@ footer a{
 
 @media only screen and (max-width: 768px) {
     .carousel-item img {
-        max-height: 300px;
+        max-height: 500px;
     }
     #FeaturedImages {
         width: fit-content;
@@ -178,13 +169,53 @@ footer a{
     .cityInfo h2 {
         font-size: 3rem;
     }
+    .cityInfo p{
+        font-size: 1.2rem;
+    }
+    #map{
+        height: 320px;
+    }
+    .jumbotron{
+        height: 400px;
+    }
+    .jumbotron h2{
+        font-size: 1.6rem;
+    }
+    .locationDetails h1{
+        font-size: 1.2rem;
+    }
+    .locationDescription{
+        font-size: 1.1rem;
+    }
+    .carouselcontainer p {
+        font-size: 1.1rem;
+        margin: 8px;
+    }
+    .irelandinfo h2{
+        font-size: 1.1rem;
+    }
+    .irelandinfo{
+        margin: 2.5rem;
+    }
+    .irelandinfo li {
+        margin: 4px;
+        font-size: 1.1rem;
+    }
+    .irelandWeather{
+        margin: 0;
+    }
+    .irelandWeather h2{
+        font-size: 1rem;
+    }
+    .irelandWeather p{
+        font-size: 1.1rem;
+    }
 }
 
 /*  Some Facts about Ireland in a list   */
 /**/
 /**/
 .irelandinfo{
-    font-family: 'Roboto Slab', serif;
     margin: 2.5rem;
 }
 
@@ -210,7 +241,6 @@ footer a{
 
 .irelandWeather{
     margin: 2.5rem;
-    font-family: 'Roboto Slab', serif;
     text-align: center;
 }
 
