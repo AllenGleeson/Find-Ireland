@@ -243,7 +243,7 @@ function setCityDesription(town) {
 	cityName.innerText = town.name;
 
 	let cityDescription = document.createElement('p');
-	cityDescription.className = `p-4`;
+	cityDescription.className = `p-2`;
 	cityDescription.innerText = town.description;
 
 

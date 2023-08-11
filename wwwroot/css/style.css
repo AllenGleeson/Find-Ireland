@@ -4,7 +4,9 @@
 /*   Colors: #fafafa  */
 
 /*   Fonts: 'Roboto Slab', serif  */
-
+body{
+    font-family: 'Roboto Slab', serif;
+}
 
 /*  Header  */
 /**/
@@ -63,6 +65,7 @@ footer a{
 .jumbotron h2{
     margin-top: 230px;
     color: #ffffff;
+    text-shadow: 1px 0px 1px #000000 !important;
 }
 
 /*  Map     */
@@ -106,6 +109,9 @@ footer a{
     font-size: 1.1rem;
 }
 
+.card-img-top{
+    min-height: 200px;
+}
 /**/
 
 
@@ -115,8 +121,6 @@ footer a{
 
 /*   About Ireland Heading and Description  */
 /**/
-.locationDetails{
-}
 
 .locationDetails h1{
     border-bottom: 5px solid #1cba24;
@@ -167,10 +171,10 @@ footer a{
 
 @media only screen and (max-width: 500px) {
     .cityInfo h2 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .cityInfo p{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     #map{
         height: 320px;
@@ -180,6 +184,7 @@ footer a{
     }
     .jumbotron h2{
         font-size: 1.6rem;
+        margin-top: auto;
     }
     .locationDetails h1{
         font-size: 1.2rem;
