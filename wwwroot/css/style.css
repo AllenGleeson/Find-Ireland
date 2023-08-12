@@ -160,62 +160,6 @@ footer a{
     max-height: 700px;
 }
 
-@media only screen and (max-width: 768px) {
-    .carousel-item img {
-        max-height: 500px;
-    }
-    #FeaturedImages {
-        width: fit-content;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .cityInfo h2 {
-        font-size: 2rem;
-    }
-    .cityInfo p{
-        font-size: 1rem;
-    }
-    #map{
-        height: 320px;
-    }
-    .jumbotron{
-        height: 400px;
-    }
-    .jumbotron h2{
-        font-size: 1.6rem;
-        margin-top: auto;
-    }
-    .locationDetails h1{
-        font-size: 1.2rem;
-    }
-    .locationDescription{
-        font-size: 1.1rem;
-    }
-    .carouselcontainer p {
-        font-size: 1.1rem;
-        margin: 8px;
-    }
-    .irelandinfo h2{
-        font-size: 1.1rem;
-    }
-    .irelandinfo{
-        margin: 2.5rem;
-    }
-    .irelandinfo li {
-        margin: 4px;
-        font-size: 1.1rem;
-    }
-    .irelandWeather{
-        margin: 0;
-    }
-    .irelandWeather h2{
-        font-size: 1rem;
-    }
-    .irelandWeather p{
-        font-size: 1.1rem;
-    }
-}
 
 /*  Some Facts about Ireland in a list   */
 /**/
@@ -268,3 +212,61 @@ footer a{
 .temp div{
     float: left;
 }
+
+@media only screen and (max-width: 768px) {
+    .carousel-item img {
+        max-height: 500px;
+    }
+    #FeaturedImages {
+        width: fit-content;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .cityInfo h2 {
+        font-size: 2rem;
+    }
+    .cityInfo p{
+        font-size: 1rem;
+    }
+    #map{
+        height: 320px;
+    }
+    .jumbotron{
+        height: 400px;
+    }
+    .jumbotron h2{
+        font-size: 1.3rem;
+        margin-top: auto;
+    }
+    .locationDetails h1{
+        font-size: 1.2rem;
+    }
+    .locationDescription{
+        font-size: 1.1rem;
+    }
+    .carouselcontainer p {
+        font-size: 1.1rem;
+        margin: 8px;
+    }
+    .irelandinfo h2{
+        font-size: 1.1rem;
+    }
+    .irelandinfo h2{
+        font-size: 1.1rem;
+    }
+    .irelandinfo li {
+        margin: 0rem;
+        font-size: 1rem;
+    }
+    .irelandWeather{
+        margin: 0;
+    }
+    .irelandWeather h2{
+        font-size: 1.2rem;
+    }
+    .irelandWeather p{
+        font-size: 1rem;
+    }
+}
+
